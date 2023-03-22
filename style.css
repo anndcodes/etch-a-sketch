@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /* width: 100vh; */
+}
+
+.game {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background:#fcfcfc;
+  width: 256px;
+  height: 256px;
+} 
+
+.grids {
+  width: 16px;
+  height: 16px;
+  outline: 1px solid #b9b9b9;
+} 
