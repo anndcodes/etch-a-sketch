@@ -8,10 +8,6 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  /* width: 100vh; */
-}
-
 .game {
   height: 100vh;
   display: flex;
