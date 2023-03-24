@@ -2,6 +2,7 @@ const container = document.querySelector(".container");
 const gridSize = document.querySelector(".grid-size");
 const selectColor = document.getElementById("select-color");
 const clear = document.getElementById("clear");
+const toggleGrid = document.querySelector("toggle-grid");
 
 // ------ function to make grids ------- //
 function gridMaker(grid) {
@@ -12,7 +13,7 @@ function gridMaker(grid) {
     grids.style.height = `(calc(60rem/${grid})`;
   
     grids.classList.add("grids");
-
+    
     grids.addEventListener('mouseover', () => {
       grids.style.background = "#000";
       selectColor ? grids.style.background = selectColor.value : false;
@@ -23,9 +24,19 @@ function gridMaker(grid) {
     })
 
   }
+  
 }
   
 gridMaker(16);
+
+
+// ------ function to show or hide grids ----- //
+function changeGrid() {
+  let hideGrid = Array.from(document.querySelectorAll(".grids"));
+  hideGrid.forEach(grids => {
+    grids.classList.toggle("hide-grid");
+  })
+}
 
 
 // -------- function to clear sketch pad and create new grids with the giving value -------- // 
