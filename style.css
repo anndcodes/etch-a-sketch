@@ -17,16 +17,14 @@ html {
 
  .container {
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-wrap: wrap;
-  background:#fcfcfc;
-  width: 256px;
-  height: 256px;
+  /* background:#fcfcfc; */
+  background: pink;
+  width: 60rem;
+  height: 60rem;
 } 
 
 .grids {
-  width: 16px;
-  height: 16px;
   outline: 1px solid #b9b9b9;
 } 
+
