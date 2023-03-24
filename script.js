@@ -1,6 +1,7 @@
 const container = document.querySelector(".container");
 const gridSize = document.querySelector(".grid-size");
 const selectColor = document.getElementById("select-color");
+const clear = document.getElementById("clear");
 
 // ------ function to make grids ------- //
 function gridMaker(grid) {
@@ -16,10 +17,16 @@ function gridMaker(grid) {
       grids.style.background = "#000";
       selectColor ? grids.style.background = selectColor.value : false;
     } )
+
+    clear.addEventListener('click', () => {
+      grids.style.background = "";
+    })
+
   }
 }
   
 gridMaker(16);
+
 
 // -------- function to clear sketch pad and create new grids with the giving value -------- // 
 function moreGrids() {
