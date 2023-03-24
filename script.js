@@ -1,5 +1,6 @@
 const container = document.querySelector(".container");
 const gridSize = document.querySelector(".grid-size");
+const selectColor = document.getElementById("select-color");
 
 // ------ function to make grids ------- //
 function gridMaker(grid) {
@@ -13,6 +14,7 @@ function gridMaker(grid) {
 
     grids.addEventListener('mouseover', () => {
       grids.style.background = "#000";
+      selectColor ? grids.style.background = selectColor.value : false;
     } )
   }
 }
