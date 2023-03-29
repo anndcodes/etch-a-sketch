@@ -3,6 +3,7 @@ const gridSize = document.querySelector(".grid-size");
 const selectColor = document.getElementById("select-color");
 const clear = document.getElementById("clear");
 const toggleGrid = document.querySelector("toggle-grid");
+const pencil = document.getElementById("pencil");
 
 // ------ function to make grids ------- //
 function gridMaker(grid) {
@@ -13,24 +14,45 @@ function gridMaker(grid) {
     grids.style.height = `(calc(60rem/${grid})`;
   
     grids.classList.add("grids");
-    
-    grids.addEventListener('mouseover', () => {
-      grids.style.background = "#000";
-      selectColor ? grids.style.background = selectColor.value : false;
-    } )
 
-    clear.addEventListener('click', () => {
-      grids.style.background = "";
+    // ------- default pencil mode -------- //
+    function pencilMode() {
+      container.addEventListener("mousedown", () => {
+        grids.addEventListener('mouseenter', mouseOver);
+        grids.addEventListener("click", () => {
+          grids.style.background = "#000";
+          selectColor ? grids.style.background = selectColor.value : false; 
+        })
+      });
+
+      function mouseOver() {
+        grids.style.background = "#000";
+        selectColor ? grids.style.background = selectColor.value : false;
+      }
+
+      container.addEventListener('mouseup', () => {
+        grids.removeEventListener('mouseenter', mouseOver, false);
+      })
+    }
+
+    pencilMode();
+
+    //----- when in another mode, click on pencil button to call its function -----//
+    pencil.addEventListener('click', () => {
+      pencilMode();
     })
 
-  }
-  
+    // --------- when clicked clears grids colors ------- // 
+    clear.addEventListener('click', () => {
+      grids.style.background = "";
+    });
+  };
 }
   
 gridMaker(16);
 
 
-// ------ function to show or hide grids ----- //
+// ------ when clicked show or hide grids ----- //
 function changeGrid() {
   let hideGrid = Array.from(document.querySelectorAll(".grids"));
   hideGrid.forEach(grids => {
@@ -58,3 +80,6 @@ function moreGrids() {
 }
 
 moreGrids()
+
+
+

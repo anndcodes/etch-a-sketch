@@ -18,10 +18,11 @@ html {
  .container {
   display: flex;
   flex-wrap: wrap;
-  /* background:#fcfcfc; */
-  background: pink;
+  background:#fcfcfc;
+  /* background: pink; */
   width: 60rem;
   height: 60rem;
+  outline: 1px solid #b9b9b9;
 } 
 
 .grids {
