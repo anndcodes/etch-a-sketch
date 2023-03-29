@@ -4,6 +4,7 @@ const selectColor = document.getElementById("select-color");
 const clear = document.getElementById("clear");
 const toggleGrid = document.querySelector("toggle-grid");
 const pencil = document.getElementById("pencil");
+const rainbow = document.getElementById("rainbow");
 
 // ------ function to make grids ------- //
 function gridMaker(grid) {
@@ -18,20 +19,20 @@ function gridMaker(grid) {
     // ------- default pencil mode -------- //
     function pencilMode() {
       container.addEventListener("mousedown", () => {
-        grids.addEventListener('mouseenter', mouseOver);
+        grids.addEventListener('mouseenter', mouseEnter);
         grids.addEventListener("click", () => {
           grids.style.background = "#000";
           selectColor ? grids.style.background = selectColor.value : false; 
         })
       });
 
-      function mouseOver() {
+      function mouseEnter() {
         grids.style.background = "#000";
         selectColor ? grids.style.background = selectColor.value : false;
       }
 
       container.addEventListener('mouseup', () => {
-        grids.removeEventListener('mouseenter', mouseOver, false);
+        grids.removeEventListener('mouseenter', mouseEnter, false);
       })
     }
 
@@ -41,6 +42,33 @@ function gridMaker(grid) {
     pencil.addEventListener('click', () => {
       pencilMode();
     })
+
+
+    // -------- rainbow mode to paint with random colors ------- //
+    function rainbowMode() {
+      let randomColor = Math.floor(Math.random()*16777215).toString(16);
+
+      container.addEventListener("mousedown", () => {
+        grids.addEventListener('mouseenter', mouseEnter);
+        grids.addEventListener("click", () => {
+          grids.style.backgroundColor = "#" + randomColor;
+        })
+      });
+
+      function mouseEnter() {
+        grids.style.backgroundColor = "#" + randomColor;
+      }
+
+      container.addEventListener('mouseup', () => {
+        grids.removeEventListener('mouseenter', mouseEnter, false);
+      })
+    }
+
+    // ----- click on rainbow button to call its function ----- //
+    rainbow.addEventListener('click', () => {
+      rainbowMode();
+    });
+
 
     // --------- when clicked clears grids colors ------- // 
     clear.addEventListener('click', () => {
