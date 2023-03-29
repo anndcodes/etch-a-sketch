@@ -5,6 +5,7 @@ const clear = document.getElementById("clear");
 const toggleGrid = document.querySelector("toggle-grid");
 const pencil = document.getElementById("pencil");
 const rainbow = document.getElementById("rainbow");
+const eraser = document.getElementById("eraser");
 
 // ------ function to make grids ------- //
 function gridMaker(grid) {
@@ -18,11 +19,12 @@ function gridMaker(grid) {
 
     // ------- default pencil mode -------- //
     function pencilMode() {
+      
       container.addEventListener("mousedown", () => {
         grids.addEventListener('mouseenter', mouseEnter);
         grids.addEventListener("click", () => {
           grids.style.background = "#000";
-          selectColor ? grids.style.background = selectColor.value : false; 
+          selectColor ? grids.style.background = selectColor.value : false;
         })
       });
 
@@ -75,6 +77,7 @@ function gridMaker(grid) {
       grids.style.background = "";
     });
   };
+
 }
   
 gridMaker(16);
@@ -94,20 +97,32 @@ function moreGrids() {
   gridSize.addEventListener("keypress", function(e) {
     if(e.key === "Enter") {
       let allGrids = Array.from(document.querySelectorAll(".grids"));
-      // console.log(typeof(allGrids));
-      // console.log(allGrids);
       allGrids.forEach(grids => {
         grids.remove();
       });
       
       let gridSizeValue = parseInt(gridSize.value);
-      // console.log(gridSizeValue);
       gridMaker(gridSizeValue);
     }
   })
 }
 
-moreGrids()
+moreGrids();
 
 
+// ------- eraser button when clicked erase the color ------- //
+function eraserBtn() {
+  let eraserGrids = Array.from(document.querySelectorAll(".grids"));
 
+  eraser.addEventListener('click', () => {
+    container.addEventListener("mousedown", () => {
+      eraserGrids.forEach(grids => {
+        grids.addEventListener("click", () => {
+          grids.style.background = "none";
+        })
+      })
+    })
+  })
+}
+
+eraserBtn();
