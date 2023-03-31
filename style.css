@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --background:#F0CDEF;;
+  --egg-background: #f5a4d6;
+  --egg-shadow1: #cca3d2;
+  --egg-shadow2: #ffddff;
+  --egg-crash: #a0f1d9;
+  --pink-shadow: #D869A6;
+  --buttons: #FCE79E;
+  --screen-color: #d6dacf;
+  --grids-outline-color: #b9b9b9;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,18 +22,22 @@ html {
   font-size: 62.5%;
 }
 
+body{
+  min-height: 100vh;
+  font-family: 'Space Mono', monospace;
+}
+
 .game {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; 
 }
 
  .container {
   display: flex;
   flex-wrap: wrap;
   background:#fcfcfc;
-  /* background: pink; */
   width: 60rem;
   height: 60rem;
   outline: 1px solid #b9b9b9;
