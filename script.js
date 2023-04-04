@@ -23,13 +23,11 @@ function gridMaker(grid) {
       container.addEventListener("mousedown", () => {
         grids.addEventListener('mouseenter', mouseEnter);
         grids.addEventListener("click", () => {
-          grids.style.background = "#000";
           selectColor ? grids.style.background = selectColor.value : false;
         })
       });
 
       function mouseEnter() {
-        grids.style.background = "#000";
         selectColor ? grids.style.background = selectColor.value : false;
       }
 
@@ -72,15 +70,33 @@ function gridMaker(grid) {
     });
 
 
-    // --------- when clicked clears grids colors ------- // 
+    // --------- click to clear the sketch pad ------- // 
     clear.addEventListener('click', () => {
       grids.style.background = "";
     });
+
+
+    // ---------- click to eraser grids ----------- //
+    function eraserBtn() {
+      let eraserGrids = Array.from(document.querySelectorAll(".grids"));
+    
+      eraser.onclick = function() {
+        container.addEventListener('mousedown', () => {
+          eraserGrids.forEach(grids => {
+            grids.addEventListener('click', () => {
+              grids.style.backgroundColor = "";
+            })
+          })
+        })
+      }
+    }
+    
+    eraserBtn();
   };
 
 }
   
-gridMaker(16);
+gridMaker(24);
 
 
 // ------ when clicked show or hide grids ----- //
@@ -92,37 +108,38 @@ function changeGrid() {
 }
 
 
-// -------- function to clear sketch pad and create new grids with the giving value -------- // 
+// -------- function to clear sketch pad and create new grids when user clicks button -------- // 
+// ---the grids sizes are small: 8x8, medium: 16x16, big: 24x24  and bigger: 36x36 --- //
 function moreGrids() {
-  gridSize.addEventListener("keypress", function(e) {
-    if(e.key === "Enter") {
-      let allGrids = Array.from(document.querySelectorAll(".grids"));
-      allGrids.forEach(grids => {
-        grids.remove();
-      });
-      
-      let gridSizeValue = parseInt(gridSize.value);
-      gridMaker(gridSizeValue);
+  let gridValue = 0;
+
+  gridSize.onclick = function () {
+    let allGrids = Array.from(document.querySelectorAll(".grids"));
+    allGrids.forEach(grids => {
+      grids.remove();
+    });
+
+    gridValue++ ;
+    // console.log(gridValue)
+    switch (true) {
+      case gridValue === 1 :
+        gridMaker(8);
+        break;
+      case gridValue === 2 :
+        gridMaker(16);
+        break;
+      case gridValue === 3 : 
+        gridMaker(24);
+        break;
+      case gridValue === 4 :
+        gridMaker(36);
+        break;
+      case gridValue === 5 :
+        gridValue = 1;
+        gridMaker(8);
+        break;
     }
-  })
+  }
 }
 
 moreGrids();
-
-
-// ------- eraser button when clicked erase the color ------- //
-function eraserBtn() {
-  let eraserGrids = Array.from(document.querySelectorAll(".grids"));
-
-  eraser.addEventListener('click', () => {
-    container.addEventListener("mousedown", () => {
-      eraserGrids.forEach(grids => {
-        grids.addEventListener("click", () => {
-          grids.style.background = "none";
-        })
-      })
-    })
-  })
-}
-
-eraserBtn();
