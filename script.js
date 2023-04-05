@@ -12,8 +12,8 @@ function gridMaker(grid) {
   for(let i = 0; i < grid * grid; i++) {
     let grids = grid <= 100 ? document.createElement("div") : false;
     container.appendChild(grids);
-    grids.style.width = `calc(60rem/${grid})`;
-    grids.style.height = `(calc(60rem/${grid})`;
+    grids.style.width = `calc(25rem/${grid})`;
+    grids.style.height = `(calc(30rem/${grid})`;
   
     grids.classList.add("grids");
 
