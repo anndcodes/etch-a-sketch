@@ -6,8 +6,10 @@
   --egg-shadow1: #cca3d2;
   --egg-shadow2: #ffddff;
   --egg-crash: #a0f1d9;
-  --pink-shadow: #D869A6;
-  --buttons: #FCE79E;
+  --egg-buttons: #FCE79E;
+  --egg-buttons-shadow: #D869A6;
+  --controls-buttons: #b3acdb;
+  --controls-buttons-shadow:#8274b6;
   --screen-color: #d6dacf;
   --grids-outline-color: #b9b9b9;
   --container-shadow: #c4c2c4;
@@ -31,12 +33,13 @@ body{
 .game {
   height: 100vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   background: var(--background); 
 }
 
+/* tamagotchi main elements */
 .egg {
   display: flex;
   flex-direction: column-reverse;
@@ -62,6 +65,7 @@ body{
   background: var(--egg-crash);
 }
 
+/* sketch pad */
  .container {
   display: flex;
   flex-flow: row wrap;
@@ -81,6 +85,67 @@ body{
   border-top: 0;
 } 
 
+/* when button clicked */
 .hide-grid {
   border: none;
+}
+
+/* buttons */
+button {
+  width: 5.3rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 1.1rem;
+  margin-inline: 5px;
+}
+
+/* tamagotchi buttons */
+.egg-controls > button {
+  background: var(--egg-buttons);
+  box-shadow: 0px 5px 0px 0px var(--egg-buttons-shadow);
+  transition: all ease 0.1s;
+}
+
+.egg-controls > button:active {
+  transform: translateY(5px);
+  box-shadow: 0px 0px 0px 0px var(--egg-buttons-shadow);
+}
+
+/* outside control buttons */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  margin-left: 6rem;
+}
+
+.controls > button {
+  background: var(--controls-buttons);
+  box-shadow: 0px 5px 0px 0px var(--controls-buttons-shadow);
+}
+
+.controls > button:active {
+  box-shadow: 0px 0px 0px 0px var(--controls-buttons-shadow);
+}
+
+/* color selector */
+#select-color {
+  -webkit-appearance: none;
+  padding: 0;
+  margin-left: 4px;
+  border: none;
+  border-radius: 30px;
+  width: 5.4rem;
+  height: 5.4rem;
+}
+#select-color::-webkit-color-swatch {
+  border: none;
+  border-radius: 30px;
+  padding: 0;
+}
+#select-color::-webkit-color-swatch-wrapper {
+  border: none;
+  border-radius: 30px;
+  padding: 0;
 }
