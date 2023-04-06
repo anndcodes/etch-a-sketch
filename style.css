@@ -27,6 +27,7 @@ html {
 
 body{
   min-height: 100vh;
+  overflow: hidden;
   font-family: 'Space Mono', monospace;
 }
 
@@ -148,4 +149,31 @@ button {
   border: none;
   border-radius: 30px;
   padding: 0;
+}
+
+/* footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background);
+  font-size: 1.6rem;
+  gap: 1rem;
+  margin-top: -5rem;
+}
+
+.footer-img {
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
+.me {
+  text-decoration: none;
+  color: var(--egg-buttons-shadow);
+  font-weight: 700;
+}
+
+.me:hover {
+  border-bottom: 2px solid var(--egg-crash);
+  transition: 0.3s;
 }

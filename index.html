@@ -10,28 +10,34 @@
 </head>
 <body>
   
-  <div class="game">
-
-    <div class="egg">
-      <div class="egg-controls">
-        <button id="pencil"><img src="assets/pencil.svg" alt="pencil icon"></button>
-        <button id="rainbow"><img src="assets/rainbow.svg" alt="palette icon"></button>
-        <button id="eraser"><img src="assets/eraser.svg" alt="eraser icon"></button>
-        <button id="clear"><img src="assets/clear.svg" alt="trash bin icon"></button>
+  <main>
+    <div class="game">
+      <div class="egg">
+        <div class="egg-controls">
+          <button id="pencil"><img src="assets/pencil.svg" alt="pencil icon"></button>
+          <button id="rainbow"><img src="assets/rainbow.svg" alt="palette icon"></button>
+          <button id="eraser"><img src="assets/eraser.svg" alt="eraser icon"></button>
+          <button id="clear"><img src="assets/clear.svg" alt="trash bin icon"></button>
+        </div>
+    
+        <div class="egg-crash">
+          <div class="container"> </div>
+        </div>
       </div>
-      
-      <div class="egg-crash">
-        <div class="container"> </div>
+      <!-- outside controls  -->
+      <div class="controls">
+        <input title="set color" type="color" value="#3a3a3a" name="select-color" id="select-color">
+        <button title="grid sizes" class="grid-size"><img src="assets/settings.svg" alt="settings cog icon"></button>
+        <button title="set grids" onclick="changeGrid()" class="toggle-grid"><img src="assets/grids.svg" alt="layers (grids) icon"></button>
       </div>
     </div>
-    <!-- outside controls  -->
-    <div class="controls">
-      <input title="set color" type="color" value="#3a3a3a" name="select-color" id="select-color">
-      <button title="grid sizes" class="grid-size"><img src="assets/settings.svg" alt="settings cog icon"></button>
-      <button title="set grids" onclick="changeGrid()" class="toggle-grid"><img src="assets/grids.svg" alt="layers (grids) icon"></button>
-    </div>
 
-  </div>
+    <!-- footer -->
+    <footer>
+      Made by <a href="https://github.com/anndcodes" target="_blank" class="me">Annd</a> with <img title="love & coffee" class="footer-img" src="assets/coffee-love.png" alt="a cup of coffee and love"> at <a href="https://github.com/anndcodes/etch-a-sketch" target="_blank"><img class="footer-img" src="assets/github.png" alt="github icon"></a>
+    </footer>
+    
+  </main>
 
 
   <script src="script.js"></script>
