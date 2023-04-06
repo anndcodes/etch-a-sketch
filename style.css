@@ -53,6 +53,7 @@ body{
   box-shadow:   -20px -20px 60px var(--egg-shadow1),
                 20px 20px 60px var(--egg-shadow2);
   background: var(--egg-background);
+  background-image: url("assets/background.png");
 }
 
 .egg-crash {
