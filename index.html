@@ -7,9 +7,12 @@
   <title>Etch a Sketch - Tamagotchi</title>
   <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+  <!-- download sketch draw -->
+  <script type="text/javascript" src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-  
+
   <main>
     <div class="game">
       <div class="egg">
@@ -29,6 +32,7 @@
         <input title="set color" type="color" value="#3a3a3a" name="select-color" id="select-color">
         <button title="grid sizes" class="grid-size"><img src="assets/settings.svg" alt="settings cog icon"></button>
         <button title="set grids" onclick="changeGrid()" class="toggle-grid"><img src="assets/grids.svg" alt="layers (grids) icon"></button>
+        <button title="download draw" class="download"><img src="assets/floppy-disk.svg" alt="floppy disk (download) icon"></button>
       </div>
     </div>
 

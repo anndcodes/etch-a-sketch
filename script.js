@@ -143,3 +143,13 @@ function moreGrids() {
 }
 
 moreGrids();
+
+// ----- download draw from the sketch ----- //
+
+document.querySelector('.download').addEventListener('click', function() {
+  html2canvas(document.querySelector('.container'), {
+      onrendered: function(canvas) {
+        return Canvas2Image.saveAsPNG(canvas);
+      }
+  });
+});
